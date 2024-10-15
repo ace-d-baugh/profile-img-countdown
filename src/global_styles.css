@@ -28,6 +28,8 @@ body {
   object-fit: cover;
   border-radius: 50%;
   z-index: 20;
+  border: 5px solid darkslategray;
+  margin: -5px;
 }
 
 .countdown {
