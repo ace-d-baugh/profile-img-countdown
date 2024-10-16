@@ -19,6 +19,7 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
 }
 
 .circle-image {
@@ -28,8 +29,8 @@ body {
   object-fit: cover;
   border-radius: 50%;
   z-index: 20;
-  border: 5px solid #FFF;
-  margin: -5px;
+  border: 2px solid #FFF;
+  margin: -2px;
 }
 
 .countdown {
@@ -47,10 +48,17 @@ body {
   width: 220px;
   height: 220px;
   border-radius: 50%;
+  /*background-image: radial-gradient(
+    transparent 60%,
+    hsl(100, 100%, 25%) 60%,
+    hsl(100, 100%, 25%) 69%,
+    #FFF 69%
+    );
   /*background-image: conic-gradient(#DD3700 0%, #F09219 12.5%, #FFC23B 25%
                                   , #D5E058 37.5%
                                   , #84C341 50%
                                   , #48A022 62.5%
                                   , #3C8900 100%);*/
+  border: 2px solid #FFF;
   transform: rotate(-135deg);
 }
