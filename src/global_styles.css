@@ -44,9 +44,13 @@ body {
 
 .circle {
   position: absolute;
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  background-image: conic-gradient(#008080 0%, #008080 100%);
+  background-image: conic-gradient(#DD3700 0%, #F09219 12.5%, #FFC23B 25%
+                                  , #D5E058 37.5%
+                                  , #84C341 50%
+                                  , #48A022 62.5%
+                                  , #3C8900 100%);
   transform: rotate(-135deg);
 }

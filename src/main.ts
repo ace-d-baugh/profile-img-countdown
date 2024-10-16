@@ -60,23 +60,17 @@ export class App implements OnInit {
       
       // Original clip: polygon(0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)
       if(this.timer >= cutPoint50 ) {
-        console.log('polygon(0% ',50+(300*(1-(this.timer/top))),'%, 0% 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)');
-        this.clipPath = `polygon(0% ${50 + (300*(1-(this.timer/top)))}%, 0% 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;      
+        this.clipPath = `polygon(0% ${50 + this.percent(top,cutPoint50)}%, 0% 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;      
       } else if (this.timer >= cutPoint40) {
-        console.log('polygon(',0 + (300*(1-(this.timer/cutPoint50))),'% 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)');
-        this.clipPath = `polygon(${0 + (300*(1-(this.timer/cutPoint50)))}% 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;        
+        this.clipPath = `polygon(${0 + this.percent(cutPoint50,cutPoint40)}% 100%, 50% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;        
       } else if (this.timer >= cutPoint30) {
-        console.log('polygon(',50 + (300*(1-(this.timer/cutPoint40))),'% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)');
-        this.clipPath = `polygon(${50 + (300*(1-(this.timer/cutPoint40)))}% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;
+        this.clipPath = `polygon(${50 + this.percent(cutPoint40,cutPoint30)}% 100%, 100% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;
       } else if (this.timer >= cutPoint20) {
-        console.log('polygon(',50 - (300*(1-(this.timer/cutPoint30))),'% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)');
-        this.clipPath = `polygon(${50 - (300*(1-(this.timer/cutPoint30)))}% 100%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;
+        this.clipPath = `polygon(100% ${100 - this.percent(cutPoint30,cutPoint20)}%, 100% 50%, 100% 0%, 50% 0%, 50% 50%)`;
       } else if (this.timer >= cutPoint10) {
-        console.log('polygon(100% ',50 - (300*(1-(this.timer/cutPoint20))),'%, 100% 0%, 50% 0%, 50% 50%)');
-        this.clipPath = `polygon(100% ${50 - (300*(1-(this.timer/cutPoint20)))}%, 100% 0%, 50% 0%, 50% 50%)`;
+        this.clipPath = `polygon(100% ${50 - this.percent(cutPoint20,cutPoint10)}%, 100% 0%, 50% 0%, 50% 50%)`;
       } else {
-        console.log('polygon(',100 - (300*(1-(this.timer/cutPoint10))),'% 0%, 50% 50%, 50% 0%)');
-        this.clipPath = `polygon(${100 - (300*(1-(this.timer/cutPoint10)))}% 0%, 50% 50%, 50% 0%)`;
+        this.clipPath = `polygon(${100 - this.percent(cutPoint10,0)}% 0%, 50% 0%, 50.0000000001% 50.0000000001%)`;
       }
  
       element.style.clipPath = this.clipPath;
@@ -89,6 +83,9 @@ export class App implements OnInit {
     animate();
   }
   
+  percent(topNum:number, bottomNum:number) {
+    return (50*(1-((this.timer-bottomNum)/(topNum-bottomNum))));
+  }
 }
 
 bootstrapApplication(App);
