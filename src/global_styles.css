@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: darkslategray;
+  background-image: linear-gradient(#0079BC 0%, #0079BC 50%, #FFF 50%, #FFF 100%);
 }
 
 .circle-timer {
@@ -28,7 +28,7 @@ body {
   object-fit: cover;
   border-radius: 50%;
   z-index: 20;
-  border: 5px solid darkslategray;
+  border: 5px solid #FFF;
   margin: -5px;
 }
 
@@ -47,10 +47,10 @@ body {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background-image: conic-gradient(#DD3700 0%, #F09219 12.5%, #FFC23B 25%
+  /*background-image: conic-gradient(#DD3700 0%, #F09219 12.5%, #FFC23B 25%
                                   , #D5E058 37.5%
                                   , #84C341 50%
                                   , #48A022 62.5%
-                                  , #3C8900 100%);
+                                  , #3C8900 100%);*/
   transform: rotate(-135deg);
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
   standalone: true,
   template: `
     <div class="container">
-      <div class="circle"></div>
+      <div class="circle color-changing"></div>
       <div class="circle-timer">
         <img class="circle-image" src="https://ace-d-baugh.github.io/teams-stand-up-tracker/Ace.jpg" alt="Image">
         <div class="countdown">
@@ -20,11 +20,13 @@ export class App implements OnInit {
   timer: number = 3600; // 60 minutes * 60 seconds
   intervalId: any;
   clipPath: string =  "";
+  colorChange: string = "";
 
   ngOnInit(): void {
     this.startTimer();
-    const pieChartElement = document.querySelector('.circle') as HTMLElement;
-    this.animateClipPath(pieChartElement);
+    const countdown = document.querySelector('.circle') as HTMLElement;
+    this.animateClipPath(countdown);
+    this.changeColor(countdown);
   }
 
   startTimer(): void {
@@ -86,6 +88,31 @@ export class App implements OnInit {
   percent(topNum:number, bottomNum:number) {
     return (50*(1-((this.timer-bottomNum)/(topNum-bottomNum))));
   }
+
+  light(timePercent:number) {
+    if (timePercent > 50) {
+      return 25 + (100 - timePercent) / 50 * 25;
+    } else {
+      return 50;
+    }
+  }
+
+  changeColor(element: HTMLElement) {
+
+    const changing = () => {
+      const timePercent = this.timer/3600*100;
+      this.colorChange = `hsl(${timePercent}, 100%, ${this.light(timePercent)}%)`;
+
+      element.style.backgroundColor = this.colorChange;
+
+      if (this.timer > 0) {
+        requestAnimationFrame(changing);
+      }
+    };
+
+    changing();
+  }
+
 }
 
 bootstrapApplication(App);
