@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(#0079BC 0%, #0079BC 50%, #FFF 50%, #FFF 100%);
+  background-image: linear-gradient(#083C5D 0%, #083C5D 57%, #FFF 57%, #FFF 100%);
 }
 
 .circle-timer {
