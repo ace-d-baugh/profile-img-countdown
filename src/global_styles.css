@@ -23,6 +23,7 @@ body {
 }
 
 .circle-image {
+  background-image: url('Jensen.jpg');
   position: absolute;
   width: 100%;
   height: 100%;

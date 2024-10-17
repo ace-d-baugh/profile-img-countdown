@@ -8,7 +8,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
     <div class="container">
       <div class="circle color-changing"></div>
       <div class="circle-timer">
-        <img class="circle-image" src="src/react_logo_icon.png" alt="Image">
+        <div class="circle-image"></div>
         <div class="countdown">
           <p class="caption">Session Ending:</p>
           <span class="timer">{{ minutes }}:{{ seconds }}</span>
