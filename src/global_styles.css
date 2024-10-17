@@ -35,12 +35,21 @@ body {
 
 .countdown {
   position: absolute;
-  bottom: -2rem;
+  bottom: -3rem;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 24px;
-  font-weight: bold;
   color: #222;
+  text-align: center;
+  font-weight: bold;
+}
+
+.caption {
+  font-size: small;
+  margin: 0;
+}
+
+.timer {
+  font-size: 24px;
 }
 
 .circle {

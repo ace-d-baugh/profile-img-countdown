@@ -8,9 +8,10 @@ import { bootstrapApplication } from '@angular/platform-browser';
     <div class="container">
       <div class="circle color-changing"></div>
       <div class="circle-timer">
-        <img class="circle-image" src="https://ace-d-baugh.github.io/teams-stand-up-tracker/Ace.jpg" alt="Image">
+        <img class="circle-image" src="https://ace-d-baugh.github.io/teams-stand-up-tracker/Jenson.jpg" alt="Image">
         <div class="countdown">
-          {{ minutes }}:{{ seconds }}
+          <p class="caption">Session Ending:</p>
+          <span class="timer">{{ minutes }}:{{ seconds }}</span>
         </div>
       </div>
     </div>
