@@ -13,6 +13,10 @@ import { bootstrapApplication } from '@angular/platform-browser';
           <p class="caption">Session Ending:</p>
           <span class="timer">{{ minutes }}:{{ seconds }}</span>
         </div>
+        <div class="info-box">
+          <h4 class="info-header">Session Countdown</h4>
+          <p class="info-text">This session will end in <b>{{ minutes }}:{{ seconds }}</b>. Any unsaved or unsubmitted changes will be lost.<br/><br/>A reminder will pop up at 15 minutes prompting you to reauthenticate or keep working.</p>
+        </div>
       </div>
     </div>
   `,
