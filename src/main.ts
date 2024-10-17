@@ -10,12 +10,11 @@ import { bootstrapApplication } from '@angular/platform-browser';
       <div class="circle-timer">
         <div class="circle-image"></div>
         <div class="countdown">
-          <p class="caption">Session Ending:</p>
-          <span class="timer">{{ minutes }}:{{ seconds }}</span>
+          <p class="caption">Time Remaining: <span class="timer">{{ minutes }}</span> minutes</p>
         </div>
         <div class="info-box">
           <h4 class="info-header">Session Countdown</h4>
-          <p class="info-text">This session will end in <b>{{ minutes }}:{{ seconds }}</b>. Any unsaved or unsubmitted changes will be lost.<br/><br/>A reminder will pop up at 15 minutes prompting you to reauthenticate or keep working.</p>
+          <p class="info-text">To help protect your personal information, you will be logged out in <b>{{ minutes }}:{{ seconds }}</b>. Any unsaved or unsubmitted changes will be lost.</p>
         </div>
       </div>
     </div>
@@ -95,18 +94,18 @@ export class App implements OnInit {
   }
 
   light(timePercent:number) {
-    if (timePercent > 50) {
-      return 25 + (100 - timePercent) / 50 * 25;
+    if (timePercent < 40) {
+      return 25 + (timePercent) / 40 * 25;
     } else {
-      return 50;
+      return 40;
     }
   }
 
   changeColor(element: HTMLElement) {
 
     const changing = () => {
-      const timePercent = this.timer/3600*100;
-      this.colorChange = `hsl(${timePercent}, 100%, ${this.light(timePercent)}%)`;
+      const timePercent = 100-(this.timer/3600*100);
+      this.colorChange = `hsl(${timePercent*1.25 + 100}, 100%, ${this.light(timePercent)}%)`;
 
       element.style.backgroundColor = this.colorChange;
 
